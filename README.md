@@ -9,6 +9,7 @@ MFEIF: Learning a Deep Multi-scale Feature Ensemble and an Edge-attention Guidan
 * Python :: 3.8
 * Torch :: 1.8
 * TorchVersion :: 0.9.1
+* tqdm opencv-python pyyaml kornia ptflops
 
 ## Getting Started
 

@@ -33,7 +33,6 @@ class FuseDataset(data.Dataset):
         self.label = label
 
     def __getitem__(self, index: int):
-
         ir_path = self.ir_list[index]
         vi_path = self.vi_list[index]
 
@@ -50,7 +49,7 @@ class FuseDataset(data.Dataset):
         t = torch.stack([ir, vi], dim=0)
         t = r(t) if r else t
 
-        ir, vi, gt = t[0], t[1], t[2]
+        ir, vi = t[0], t[1]
         return (ir, vi) if not self.label else (ir, vi, ir_name)
 
     def __len__(self):

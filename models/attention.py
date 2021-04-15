@@ -30,7 +30,6 @@ class Attention(nn.Module):
         self.ed = EdgeDetect()
 
     def forward(self, x):
-
         # edge detect
         e = self.ed(x)
         x = x + e

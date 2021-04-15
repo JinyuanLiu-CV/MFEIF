@@ -1,6 +1,6 @@
 environment:
   identity: MFEIF
-  cuda: False
+  cuda: True
   visdom_port: ~
   log_config: log/log.conf
 test:

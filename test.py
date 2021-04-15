@@ -1,10 +1,11 @@
 import logging.config
 import os
+import statistics
+import time
 
 import torch
 import torch.nn as nn
 import yaml
-
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
@@ -12,10 +13,9 @@ from models.attention import Attention
 from models.constructor import Constructor
 from models.extractor import Extractor
 from models.fuse_dataset import FuseDataset
-
-# load config
 from tools.imsave import imsave
 
+# load config
 with open('config.yml', 'r') as f:
     config = yaml.safe_load(f)
 
@@ -70,8 +70,11 @@ data = FuseDataset(it, iz, cuda, True)
 loader = DataLoader(data, 1, False)
 
 # start test
+tr = []  # time record
+
 with torch.no_grad():
     for ir, vi, label in tqdm(loader):
+        st = time.time()
 
         ir_1, ir_b_1, ir_b_2 = net_ext(ir)
         vi_1, vi_b_1, vi_b_2 = net_ext(vi)
@@ -85,5 +88,14 @@ with torch.no_grad():
 
         fus_2 = net_con(fus_1, fus_b_1, fus_b_2)
 
+        torch.cuda.synchronize()
+        et = time.time()
+        tr.append(et - st)
+
         p = os.path.join(rf, 'FUS_{}.jpg'.format(label[0]))
         imsave(p, fus_2)
+
+# time record
+s = statistics.stdev(tr[1:])
+m = statistics.mean(tr[1:])
+print('std time: {} \t mean time: {}'.format(s, m))
