@@ -1,0 +1,11 @@
+environment:
+  identity: MFEIF
+  cuda: False
+  visdom_port: ~
+  log_config: log/log.conf
+test:
+  image_size: ~
+  image_root: data
+  result_folder: tmp/result
+  snapshots_folder: tmp/snapshots
+  load_pretrain_model: [ 495 , 495 , 495 ]
