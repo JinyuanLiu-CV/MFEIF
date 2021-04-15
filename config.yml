@@ -7,5 +7,5 @@ test:
   image_size: ~
   image_root: data
   result_folder: tmp/result
-  snapshots_folder: tmp/snapshots
+  snapshots_folder: weights
   load_pretrain_model: [ 495 , 495 , 495 ]
