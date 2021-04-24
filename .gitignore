@@ -3,6 +3,9 @@ tmp/
 log/
 !log/log.conf
 
+### Python template
+*.pyc
+
 ### JetBrains template
 .idea/
 cmake-build-*/
