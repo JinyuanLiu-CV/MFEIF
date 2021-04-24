@@ -15,7 +15,7 @@ MFEIF: Learning a Deep Multi-scale Feature Ensemble and an Edge-attention Guidan
 
 ### Installation
 
-Clone this github repository to your local.
+Clone this GitHub repository to your local.
 
 ### Test
 
