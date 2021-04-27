@@ -94,7 +94,7 @@ with torch.no_grad():
 
         fus_2 = net_con(fus_1, fus_b_1, fus_b_2)
 
-        torch.cuda.synchronize()
+        torch.cuda.synchronize() if cuda else None
         et = time.time()
         tr.append(et - st)
 
