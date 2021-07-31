@@ -19,8 +19,7 @@ Clone this GitHub repository to your local.
 
 ### Test
 
-1. Set args in `config.yml`
-2. Run `python test.py` in shell
+Run `python fuse.py` in shell
 
 ## Citation
 

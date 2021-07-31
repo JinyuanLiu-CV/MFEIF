@@ -1,7 +1,9 @@
 ### PyTorch template
-tmp/
-log/
+tmp
+log
+data
 !log/log.conf
+!weights/default.pth
 
 ### Python template
 *.pyc
